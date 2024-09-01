@@ -27,8 +27,8 @@ describe('#push', () => {
       expect(drive.updateFile).toHaveBeenCalledWith('FILE_ID', 'DATA')
     })
 
-    test('returns file id', () => {
-      expect(result).toBe('FILE_ID')
+    test('returns data', () => {
+      expect(result).toBe('DATA')
     })
   })
 
@@ -38,6 +38,7 @@ describe('#push', () => {
     describe('folder is creatable', () => {
       beforeEach(async () => {
         drive.__setFolderExists(false)
+        drive.__setFileExists(false)
         result = await sync.push('DATA')
       })
 
